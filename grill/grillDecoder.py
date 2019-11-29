@@ -53,16 +53,13 @@ grill = list(map(lambda x: x[0]+x[1], zip(*full)))
 inputText = wrap(inputText,4*N*N)
 
 outputText =""
+thisGrill=copy.deepcopy(grill)
 for text in inputText:
     code=wrap(text,2*N)
-    thisGrill=copy.deepcopy(grill)
-
-   # thisGrill = rotateRight(thisGrill)
     for i in range(4):
         for j in range(2*N):                
             for k in range(2*N):
                 if thisGrill[j][k] == 0:
                     outputText += code[j][k]
-       # thisGrill = rotateLeft(thisGrill)
         thisGrill = rotateRight(thisGrill)
 print(outputText)
